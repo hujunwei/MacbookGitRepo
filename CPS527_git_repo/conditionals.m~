@@ -1,0 +1,27 @@
+%CPS527--HW1Q6_5
+function [ Pxgy, Pygx ] = conditionals( P )
+[m, n] = size(P);
+if isProbability(P) == 0
+    error('invalid input: P is not a valid probability distribution');
+end
+[Px, Py] = marginals(P);
+
+for i = 1 : n
+    Pxgy(:, i) = P(:, i) ./ Py;
+end
+for i = 1 : m
+    Pygx(i, :) = P(i, :) ./ Px;
+end
+for i = 1 : m
+    for j = 1 : n
+        if isnan(Pygx(i, j) )
+            Pygx(i, j) = 1 / m;
+        end
+        if isnan(Pxgv(i, j) ) 
+            Pxgv(i, j) = 1 / n;
+        end
+    end
+end
+
+end
+

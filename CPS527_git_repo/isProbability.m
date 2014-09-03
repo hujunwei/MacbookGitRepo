@@ -1,20 +1,6 @@
-function [ ans ] = isProbability( matrix )
-[row, col] = size(matrix)
-%check sum of each elem == 1
-sum_all = sum(sum(matrix, 2), 1);
-if sum_all == 1
-    ans = true
-else
-    ans = false
-end
-%check each elem >= 0
-dummy = find(matrix < 0)
-if isempty(dummy)
-    ans = ans & true
-else
-    ans = ans & false
-end
-
-
+%CPS527--HW1Q6_1
+function [ ans_bool ] = isProbability( matrix )
+%check sum of each elem == 1 && check each elem >= 0
+ans_bool = sum(sum(matrix, 2), 1) == 1 && isempty(find(matrix < 0));
 end
 

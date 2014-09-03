@@ -1,0 +1,18 @@
+%CPS527--HW1Q6_7
+function [ Pygx ] = bayes( Pxgy, Py )
+if isProbability(Py) == 0
+    error('invalid input: inputs are not valid probability distribution');
+end
+
+[m, n] = size(Pxgy);
+for i = 1 : m
+    for j = 1 : n
+        Pxgy_Sum_i += Pxgy(i, j) * Py 
+    for j = 1 : n
+        Pygx(i, j) = Pxgy(i, j) * Py(j) / ( Pxgy(i, :) .* Py );
+    end
+end
+
+
+end
+
