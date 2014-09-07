@@ -3,7 +3,6 @@ clc;
 clear all;
 S = load ('hw1.mat');
 Pxgc = S.pxgc;
-
 Pxgb = S.pxgb;
 stairs(Pxgc);
 hold on
