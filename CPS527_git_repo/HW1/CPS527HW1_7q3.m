@@ -11,10 +11,12 @@ Pxc = Pxgc .* Pc;
 Px = Pxgc .* Pc + Pxgb .* Pb;
 [row_zero_idx, col_zero_idx] = find(Px == 0);
 Pcgx = Pxc ./ Px;
+%for the ?NaN? in Pcgx and Pbgx, we assigned them as 1/2
 Pcgx(row_zero_idx, :) = 1 / 2;
 %calculate pbgx
 Pxb = Pxgb .* Pb;
 Pbgx = Pxb ./ Px;
+%for the ?NaN? in Pcgx and Pbgx, we assigned them as 1/2
 Pbgx(row_zero_idx, :) = 1 / 2;
 stairs(Pcgx);
 hold on

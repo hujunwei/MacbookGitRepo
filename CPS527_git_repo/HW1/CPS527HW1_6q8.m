@@ -15,6 +15,6 @@ disp(Pygx_bayes);
 %CPS527--HW1Q6_9
 %[Pxgy, Pygx] = conditionals(Pygx .* (Px * ones(1, length(Pygx))));
 
-[Pxgy] = bayes(Pygx', Px');
-
+[Pxgy] = bayes(Pygx', Px')';
+disp('Pxgy is : ');
 disp(Pxgy);
